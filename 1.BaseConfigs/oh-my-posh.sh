@@ -1,29 +1,5 @@
 #!/bin/bash
 
-# Script to set up a new system with base packages and Oh My Posh
-
-# Check if running as root
-if [ "$(id -u)" -eq 0 ]; then
-    echo "❌ Please don't run this script directly as root"
-    echo "ℹ️ The script will use sudo when necessary"
-    exit 1
-fi
-
-# Prompt for username if not provided
-read -p "👤 Enter username to add to sudo group: " username
-if ! id "$username" &>/dev/null; then
-    echo "❌ User '$username' does not exist. Please create the user first."
-    exit 1
-fi
-
-echo "👥 === Adding $username to sudo group ==="
-sudo usermod -aG sudo "$username"
-
-echo "📦 === Installing base packages ==="
-sudo apt update
-sudo apt install -y git curl unzip vim
-
-# Check if Oh My Posh is already installed
 if ! command -v oh-my-posh &>/dev/null; then
     echo "🎨 === Installing Oh My Posh ==="
     curl -s https://ohmyposh.dev/install.sh | bash -s

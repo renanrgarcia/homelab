@@ -1,8 +1,20 @@
 # Homelab
 
-- Run [base-package](./1.InitialConfigs/base-packages.sh) to install all the base packages.
+- Run scripts on 1.BaseConfigs:
+  - [base-packages](./1.BaseConfigs/base-packages.sh) - Base packages for Ubuntu/Debian
+  - [oh-my-posh](./1.BaseConfigs/oh-my-posh.sh) - Oh My Posh for PowerShell
+  - [sudo-user](./1.BaseConfigs/sudo-user.sh) - Create a sudo user
+- Make scripts executable:
+
+```bash
+chmod +x 1.BaseConfigs/*.sh
+```
 
 # Next steps
+
+## Terraform + Proxmox API
+
+- [Terraform](https://www.terraform.io/) - Infrastructure as Code (IaC) tool
 
 ## Forward Proxy (Client)
 
